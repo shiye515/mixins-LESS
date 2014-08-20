@@ -1,0 +1,8 @@
+// 背景透明-所有浏览器
+
+.transparent(@opacity: 0.4){
+	@color: rgba(0, 0, 0, @opacity);
+    background: @color;
+    filter: e(%("progid:DXImageTransform.Microsoft.gradient(startColorstr='%d', endColorstr='%d')",argb(@color),argb(@color)));
+    filter:none\9\0;//ie9 同时支持filter以及background:rgba()。
+}

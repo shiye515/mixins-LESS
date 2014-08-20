@@ -1,30 +1,16 @@
-.opacity(@opacity: 0.5) {
-    -moz-opacity: @opacity;
-    -khtml-opacity: @opacity;
-    -webkit-opacity: @opacity;
-    opacity: @opacity;
-    @opperc: @opacity * 100;
-    -ms-filter: ~"progid:DXImageTransform.Microsoft.Alpha(opacity=@{opperc})";
-    filter: ~"alpha(opacity=@{opperc})";
-}
-.inner-shadow(@horizontal:0, @vertical:1px, @blur:2px, @alpha: 0.4) {
-    -webkit-box-shadow: inset @horizontal @vertical @blur rgba(0, 0, 0, @alpha);
-    -moz-box-shadow: inset @horizontal @vertical @blur rgba(0, 0, 0, @alpha);
-    box-shadow: inset @horizontal @vertical @blur rgba(0, 0, 0, @alpha);
-}
-.box-shadow(@arguments) {
-    -webkit-box-shadow: @arguments;
-    -moz-box-shadow: @arguments;
-    box-shadow: @arguments;
-}
-.user-select(@argument: none) {
-    -webkit-user-select: @argument;
-    -moz-user-select: @argument;
-    -ms-user-select: @argument;
-    user-select: @argument;
-}
-.text-overflow() {
-    overflow: hidden;
-    text-overflow: ellipsis;
-    white-space: nowrap;
-}
+// Mixins
+// --------------------------------------------------
+// @import "mixins/gradient.less";
+
+// Utilities
+@import "mixins/gradient.less";
+@import "mixins/opacity.less";
+@import "mixins/shadow.less";
+@import "mixins/transparent.less";
+@import "mixins/text-hide.less";
+@import "mixins/text-overflow.less";
+@import "mixins/user-select.less";
+
+// Layout
+@import "mixins/clearfix.less";
+@import "mixins/center-block.less";

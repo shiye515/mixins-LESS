@@ -1,0 +1,28 @@
+/*测试*/
+
+@import "mixins.less";
+
+.opacity {
+    .opacity(@opacity: 0.5)
+}
+.text-hide{
+	.text-hide()
+}
+.transparent{
+	.transparent(0.6)
+}
+.linear-gradient-r{
+	.linear-gradient(#000,#fff,right);
+	height: 300px;
+	width: 300px;
+}
+.linear-gradient-b{
+	.linear-gradient(#000,#fff);
+	height: 300px;
+	width: 300px;
+}
+.linear-gradient-c{
+	.linear-gradient();
+	height: 300px;
+	width: 300px;
+}
