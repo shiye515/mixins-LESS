@@ -1,13 +1,93 @@
 // 变换
-// @property: CSS 属性的名称。
+// @props: CSS 属性的名称。
 // @duration: 规定完成过渡效果需要多少秒或毫秒。
-// @timing-function: 规定速度效果的速度曲线。linear ease ease-in ease-out ease-in-out cubic-bezier(n,n,n,n)
+// @timing: 规定速度效果的速度曲线。linear ease ease-in ease-out ease-in-out cubic-bezier(n,n,n,n)
 // @delay: 定义过渡效果何时开始。
+// examples: .transition(); | .transition(@duration: 3s); | .transition(height, 4s, 12s, ease-out); | 
+// .transition(width, height, top; 1s, 2s; 0s, 1s, 3s; ease-in, ease-out, ease);
+// .transition(width, height, top; 1s, 2s; 0s, 1s, 3s; ease-in, ease-out, ease; false); | 
+// .transition(@raw-input: top 1s, bottom 1s, color 3s 1s linear;);
 
-.transition(...) {
-	-moz-transition: @arguments-list;
-	-webkit-transition: @arguments-list;
-	-o-transition: @arguments-list;
-	-ms-transition: @arguments-list;
-	transition: @arguments-list;
+.transition (@props: all;
+ @duration:1s;
+ @delay: 0s;
+ @timing: ease;
+ @compact: true;
+ @raw-input: false) {
+    .output() when (@raw-input=false) and not (@compact=true) {
+        -webkit-transition-property:@props;
+        -moz-transition-property:@props;
+        -ms-transition-property:@props;
+        -o-transition-property:@props;
+        transition-property:@props;
+        -webkit-transition-duration:@duration;
+        -moz-transition-duration:@duration;
+        -ms-transition-duration:@duration;
+        -o-transition-duration:@duration;
+        transition-duration:@duration;
+        -webkit-transition-delay: @delay;
+        -moz-transition-delay: @delay;
+        -ms-transition-delay: @delay;
+        -o-transition-delay: @delay;
+        transition-delay: @delay;
+        -webkit-transition-timing-function:@timing;
+        -moz-transition-timing-function:@timing;
+        -ms-transition-timing-function:@timing;
+        -o-transition-timing-function:@timing;
+        transition-timing-function:@timing;
+    }
+    .output() when (@raw-input=false) and (@compact=true) {
+        @propsLength: length(@props);
+        @durationLength: length(@duration);
+        @delayLength: length(@delay);
+        @timingLength: length(@timing);
+        .buildString(@i, @s: ~'') when (@i <=@propsLength) {
+            @prop: extract(@props, @i);
+            .setDuration() when (@i <=@durationLength) {
+                @dur: extract(@duration, @i);
+            }
+            .setDuration() when (@i > @durationLength) {
+                @dur: extract(@duration, @durationLength);
+            }
+            .setDuration();
+            .setDelay() when (@i <=@delayLength) {
+                @del: extract(@delay, @i);
+            }
+            .setDelay() when (@i > @delayLength) {
+                @del: extract(@delay, @delayLength);
+            }
+            .setDelay();
+            .setTiming() when (@i <=@timingLength) {
+                @time: extract(@timing, @i);
+            }
+            .setTiming() when (@i > @timingLength) {
+                @time: extract(@timing, @timingLength);
+            }
+            .setTiming();
+            .setDivider() when (@i > 1) {
+                @divider: ~'@{s},';
+            }
+            .setDivider() when (@i=1) {
+                @divider: ~'';
+            }
+            .setDivider();
+            @string: @divider @prop @dur @del @time;
+            .buildString((@i + 1), @string);
+        }
+        .buildString(1);
+        .buildString(@i, @s: ~'') when (@i > @propsLength) {
+            .compact(@s);
+        }
+    }
+    .output() when not (@raw-input=false) {
+        .compact(@raw-input);
+    }
+    .compact(@string) {
+        -webkit-transition:@string;
+        -moz-transition:@string;
+        -ms-transition:@string;
+        -o-transition:@string;
+        transition:@string;
+    }
+    .output();
 }
