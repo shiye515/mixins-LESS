@@ -1,0 +1,13 @@
+// 变换
+// @property: CSS 属性的名称。
+// @duration: 规定完成过渡效果需要多少秒或毫秒。
+// @timing-function: 规定速度效果的速度曲线。linear ease ease-in ease-out ease-in-out cubic-bezier(n,n,n,n)
+// @delay: 定义过渡效果何时开始。
+
+.transition(...) {
+	-moz-transition: @arguments-list;
+	-webkit-transition: @arguments-list;
+	-o-transition: @arguments-list;
+	-ms-transition: @arguments-list;
+	transition: @arguments-list;
+}
