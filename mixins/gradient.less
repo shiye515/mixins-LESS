@@ -1,7 +1,8 @@
-// 背景渐变-所有浏览器,支持透明度
+// 背景渐变-所有浏览器,支持透明度 (https://github.com/shiye515/mixins-LESS)
 // @start: rgba(0,0,0,0), 颜色值
 // @stop: rgba(0,0,0,0.8), 颜色值
 // @direction: bottom（默认）|right 只有这两种
+
 
 .linear-gradient(@start: rgba(0,0,0,0), @stop: rgba(0,0,0,0.8), @direction: bottom) when (@direction = right ) {
     background: mix(@start, @stop, 50%); // fallback color if gradients are not supported
@@ -11,6 +12,8 @@
     background:      -o-linear-gradient(left, @start 0%, @stop 100%); // For old Opera (11.1 to 12.0)
     background:         linear-gradient(to right, @start 0%, @stop 100%); // Standard syntax; must be last
     filter: e(%("progid:DXImageTransform.Microsoft.gradient(startColorstr='%d', endColorstr='%d', GradientType=1)", argb(@start), argb(@stop)));// IE6-8
+    /* 针对 IE9 的 hack */
+    :root &{background:none\9\0;}
 }
 .linear-gradient(@start: rgba(0,0,0,0), @stop: rgba(0,0,0,0.8), @direction: bottom) when (@direction = bottom ) {
     background: mix(@start, @stop, 50%);
@@ -20,4 +23,6 @@
     background:      -o-linear-gradient(top, @start 0%, @stop 100%);
     background:         linear-gradient(to bottom, @start 0%, @stop 100%);
     filter: e(%("progid:DXImageTransform.Microsoft.gradient(startColorstr='%d', endColorstr='%d', GradientType=0)", argb(@start), argb(@stop)));
+    /* 针对 IE9 的 hack */
+    :root &{background:none\9\0;}
 }

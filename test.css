@@ -1,54 +1,18 @@
+/* CSS crunched with Crunch - http://crunchapp.net/ */
 /*测试*/
-.opacity {
-  -moz-opacity: 0.5;
-  -khtml-opacity: 0.5;
-  -webkit-opacity: 0.5;
-  opacity: 0.5;
-  -ms-filter: progid:DXImageTransform.Microsoft.Alpha(opacity=50);
-  filter: alpha(opacity=50);
-}
-.text-hide {
-  font: 0/0 a;
-  color: transparent;
-  text-shadow: none;
-  background-color: transparent;
-  border: 0;
-}
-.transparent {
-  background: rgba(0, 0, 0, 0.6);
-  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#99000000', endColorstr='#99000000');
-  filter: none\9\0;
-}
-.linear-gradient-r {
-  background: #808080;
-  background: -webkit-linear-gradient(left, #000000 0%, #ffffff 100%);
-  background: -webkit-gradient(linear, left top, right top, color-stop(0, #000000), color-stop(1, #ffffff));
-  background: -moz-linear-gradient(left, #000000 0%, #ffffff 100%);
-  background: -o-linear-gradient(left, #000000 0%, #ffffff 100%);
-  background: linear-gradient(to right, #000000 0%, #ffffff 100%);
-  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ff000000', endColorstr='#ffffffff', GradientType=1);
-  height: 300px;
-  width: 300px;
-}
-.linear-gradient-b {
-  background: #808080;
-  background: -webkit-linear-gradient(top, #000000 0%, #ffffff 100%);
-  background: -webkit-gradient(linear, left bottom, left top, color-stop(0, #000000), color-stop(1, #ffffff));
-  background: -moz-linear-gradient(top, #000000 0%, #ffffff 100%);
-  background: -o-linear-gradient(top, #000000 0%, #ffffff 100%);
-  background: linear-gradient(to bottom, #000000 0%, #ffffff 100%);
-  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ff000000', endColorstr='#ffffffff', GradientType=0);
-  height: 300px;
-  width: 300px;
+body {
+  background: yellow;
 }
 .linear-gradient-c {
-  background: rgba(0, 0, 0, 0.4);
-  background: -webkit-linear-gradient(top, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.8) 100%);
-  background: -webkit-gradient(linear, left bottom, left top, color-stop(0, rgba(0, 0, 0, 0)), color-stop(1, rgba(0, 0, 0, 0.8)));
-  background: -moz-linear-gradient(top, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.8) 100%);
-  background: -o-linear-gradient(top, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.8) 100%);
-  background: linear-gradient(to bottom, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.8) 100%);
-  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#00000000', endColorstr='#cc000000', GradientType=0);
   height: 300px;
-  width: 300px;
+  background: rgba(0, 0, 0, 0.6);
+  background: -webkit-linear-gradient(top, rgba(0, 0, 0, 0.6) 0%, rgba(0, 0, 0, 0.6) 100%);
+  background: -webkit-gradient(linear, left bottom, left top, color-stop(0, rgba(0, 0, 0, 0.6)), color-stop(1, rgba(0, 0, 0, 0.6)));
+  background: -moz-linear-gradient(top, rgba(0, 0, 0, 0.6) 0%, rgba(0, 0, 0, 0.6) 100%);
+  background: -o-linear-gradient(top, rgba(0, 0, 0, 0.6) 0%, rgba(0, 0, 0, 0.6) 100%);
+  background: linear-gradient(to bottom, rgba(0, 0, 0, 0.6) 0%, rgba(0, 0, 0, 0.6) 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#99000000', endColorstr='#99000000', GradientType=0);
+}
+:root .linear-gradient-c {
+  background: none\9\0;
 }
